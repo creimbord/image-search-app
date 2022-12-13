@@ -5,11 +5,11 @@
 //  Created by Rodion Artyukhin on 13.12.2022.
 //
 
-import Foundation
+import UIKit
 
 enum Assembly {
-    static func createSearchScene() -> SearchViewController {
+    static func createSearchScene() -> UINavigationController {
         let viewController = SearchViewController()
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }
 }

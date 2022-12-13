@@ -15,6 +15,7 @@
 		CCAFE2A42948633D00ADF66B /* ImageSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2A32948633D00ADF66B /* ImageSearchAppTests.swift */; };
 		CCAFE2AF2948633D00ADF66B /* ImageSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */; };
 		CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2C6294863FF00ADF66B /* Assembly.swift */; };
+		CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2E32948728B00ADF66B /* PlaceholderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAppUITests.swift; sourceTree = "<group>"; };
 		CCAFE2B02948633D00ADF66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCAFE2C6294863FF00ADF66B /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		CCAFE2E32948728B00ADF66B /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */,
 				CCAFE2C5294863F000ADF66B /* Assembly */,
 				CCAFE2D12948647400ADF66B /* Scenes */,
+				CCAFE2E12948727800ADF66B /* Helpers */,
 				CCAFE2DD294864E700ADF66B /* Resources */,
 			);
 			path = ImageSearchApp;
@@ -166,6 +169,22 @@
 				CCAFE29A2948633D00ADF66B /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CCAFE2E12948727800ADF66B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2E22948727D00ADF66B /* Views */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CCAFE2E22948727D00ADF66B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2E32948728B00ADF66B /* PlaceholderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +319,7 @@
 				CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */,
 				CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */,
 				CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */,
+				CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */,
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
