@@ -23,6 +23,9 @@
 		CCAFE30E2948CEB500ADF66B /* RouteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE30D2948CEB500ADF66B /* RouteType.swift */; };
 		CCAFE3172948DB4400ADF66B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3162948DB4400ADF66B /* Errors.swift */; };
 		CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE31F2948DE8E00ADF66B /* PhotoSize.swift */; };
+		CCAFE32E2948E5BF00ADF66B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE32D2948E5BF00ADF66B /* SearchModel.swift */; };
+		CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3352948E6C300ADF66B /* SearchInteractor.swift */; };
+		CCAFE33B2948E9B700ADF66B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE33A2948E9B700ADF66B /* SearchPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		CCAFE30D2948CEB500ADF66B /* RouteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteType.swift; sourceTree = "<group>"; };
 		CCAFE3162948DB4400ADF66B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CCAFE31F2948DE8E00ADF66B /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
+		CCAFE32D2948E5BF00ADF66B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		CCAFE3352948E6C300ADF66B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		CCAFE33A2948E9B700ADF66B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,9 @@
 		CCAFE2D52948648300ADF66B /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
+				CCAFE32A2948E4FD00ADF66B /* Model */,
+				CCAFE32C2948E50800ADF66B /* Presenter */,
+				CCAFE32B2948E50000ADF66B /* Interactor */,
 				CCAFE2D92948648B00ADF66B /* ViewController */,
 			);
 			path = SearchScene;
@@ -262,6 +271,30 @@
 				CCAFE31F2948DE8E00ADF66B /* PhotoSize.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		CCAFE32A2948E4FD00ADF66B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE32D2948E5BF00ADF66B /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCAFE32B2948E50000ADF66B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE3352948E6C300ADF66B /* SearchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CCAFE32C2948E50800ADF66B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE33A2948E9B700ADF66B /* SearchPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,11 +426,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAFE32E2948E5BF00ADF66B /* SearchModel.swift in Sources */,
 				CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */,
+				CCAFE33B2948E9B700ADF66B /* SearchPresenter.swift in Sources */,
 				CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */,
 				CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */,
 				CCAFE3032948C45200ADF66B /* FlickrRoute.swift in Sources */,
 				CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */,
+				CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */,
 				CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */,
 				CCAFE2EE2948A83C00ADF66B /* NetworkService.swift in Sources */,
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,

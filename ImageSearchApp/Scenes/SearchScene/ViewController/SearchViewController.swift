@@ -7,23 +7,40 @@
 
 import UIKit
 
+protocol SearchDisplayLogic: AnyObject {
+    func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel)
+}
+
 final class SearchViewController: UIViewController {
+    
+    // MARK: - Properties
+    var interactor: SearchBusinessLogic?
+    private var photos: [Photo] = []
+    private var searchQuery = ""
     
     // MARK: - Constants
     private enum Constants {
-        static let title = "Images"
-        static let placeholderText = "No images"
+        static let title = "Photos"
+        static let placeholderText = "No photos"
+        static let screenWidth = UIScreen.main.bounds.width
+        static let spaceOffsets: CGFloat = 20
+        static let sideOffsets: CGFloat = 32
+        static let numberOfItemsInSection: CGFloat = 3
         static let sectionInset: UIEdgeInsets = .init(top: 16, left: 16, bottom: 16, right: 16)
     }
     
     // MARK: - Views
-    private let searchController = UISearchController(searchResultsController: nil)
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        return searchController
+    }()
     private let placeholderView = PlaceholderView(
         text: Constants.placeholderText,
         image: .empty,
         imageTintColor: .systemGray
     )
-    private lazy var imagesCollectionView: UICollectionView = {
+    private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.sectionInset = Constants.sectionInset
@@ -48,10 +65,39 @@ final class SearchViewController: UIViewController {
     }
 }
 
+// MARK: - SearchDisplayLogic
+extension SearchViewController: SearchDisplayLogic {
+    func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel) {
+        photos = viewModel.photos
+        photosCollectionView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text.map { searchQuery = $0 }
+        let rows = round(layoutFrame.height / thumbnailSize)
+        
+        interactor?.fetchPhotos(.init(
+            query: searchQuery,
+            page: 1,
+            photosPerPage: Int(rows * Constants.numberOfItemsInSection)
+        ))
+        searchController.isActive = false
+        searchController.searchBar.text = searchQuery
+    }
+}
+
 // MARK: - Computed properties
 private extension SearchViewController {
     var layoutFrame: CGRect {
         view.safeAreaLayoutGuide.layoutFrame
+    }
+    
+    var thumbnailSize: CGFloat {
+        let offsets = Constants.spaceOffsets + Constants.sideOffsets
+        return (Constants.screenWidth - offsets) / Constants.numberOfItemsInSection
     }
 }
 
@@ -65,13 +111,13 @@ private extension SearchViewController {
     }
     
     func addSubviews() {
-        view.addSubview(imagesCollectionView)
+        view.addSubview(photosCollectionView)
         view.addSubview(placeholderView)
         navigationItem.searchController = searchController
     }
     
     func setupFrames() {
-        imagesCollectionView.frame = layoutFrame
+        photosCollectionView.frame = layoutFrame
         placeholderView.frame = layoutFrame
     }
 }
