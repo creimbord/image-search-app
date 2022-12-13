@@ -25,8 +25,9 @@ final class SearchViewController: UIViewController {
         static let screenWidth = UIScreen.main.bounds.width
         static let spaceOffsets: CGFloat = 20
         static let sideOffsets: CGFloat = 32
-        static let numberOfItemsInSection: CGFloat = 3
-        static let sectionInset: UIEdgeInsets = .init(top: 16, left: 16, bottom: 16, right: 16)
+        static let numberOfItemsInSection = 3
+        static let titleHeight: CGFloat = 51
+        static let sectionInset: UIEdgeInsets = .init(top: 0, left: 16, bottom: 16, right: 16)
     }
     
     // MARK: - Views
@@ -46,6 +47,12 @@ final class SearchViewController: UIViewController {
         layout.sectionInset = Constants.sectionInset
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(
+            PhotoCell.self,
+            forCellWithReuseIdentifier: String(describing: PhotoCell.self)
+        )
+        collectionView.delegate = self
+        collectionView.dataSource = self
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -77,15 +84,40 @@ extension SearchViewController: SearchDisplayLogic {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text.map { searchQuery = $0 }
-        let rows = round(layoutFrame.height / thumbnailSize)
         
         interactor?.fetchPhotos(.init(
             query: searchQuery,
             page: 1,
-            photosPerPage: Int(rows * Constants.numberOfItemsInSection)
+            photosPerPage: numberOfSections * Constants.numberOfItemsInSection
         ))
+        
+        placeholderView.isHidden = true
         searchController.isActive = false
         searchController.searchBar.text = searchQuery
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let photo = photos[indexPath.item]
+        let reuseID = String(describing: PhotoCell.self)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! PhotoCell
+        cell.configure(with: photo)
+        
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: thumbnailSize, height: thumbnailSize + Constants.titleHeight)
     }
 }
 
@@ -95,9 +127,13 @@ private extension SearchViewController {
         view.safeAreaLayoutGuide.layoutFrame
     }
     
+    var numberOfSections: Int {
+        Int(round(layoutFrame.height / thumbnailSize))
+    }
+    
     var thumbnailSize: CGFloat {
         let offsets = Constants.spaceOffsets + Constants.sideOffsets
-        return (Constants.screenWidth - offsets) / Constants.numberOfItemsInSection
+        return (Constants.screenWidth - offsets) / CGFloat(Constants.numberOfItemsInSection)
     }
 }
 

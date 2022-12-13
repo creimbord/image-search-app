@@ -23,4 +23,15 @@ enum Assembly {
         
         return UINavigationController(rootViewController: viewController)
     }
+    
+    static func preparePhotoScene(for cell: PhotoCell) {
+        let presenter = PhotoPresenter()
+        let interactor = PhotoInteractor()
+        let networkService = NetworkService()
+        
+        presenter.cell = cell
+        interactor.presenter = presenter
+        interactor.networkService = networkService
+        cell.interactor = interactor
+    }
 }

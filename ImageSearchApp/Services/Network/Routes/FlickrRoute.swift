@@ -59,7 +59,10 @@ extension FlickrRoute: RouteType {
             let apiKey = "?api_key=\(FlickrRoute.apiKey)"
             let path = "&method=\(self.path)"
             let params = queryParams.map({ param, value in "&\(param)=\(value)" }).joined()
-            let urlString = baseURL + apiKey + path + params
+            let encodedParams = params.addingPercentEncoding(
+                withAllowedCharacters: .urlPathAllowed
+            ) ?? ""
+            let urlString = baseURL + apiKey + path + encodedParams
             return URL(string: urlString)
         case .photo:
             let urlString = baseURL + path
