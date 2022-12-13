@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28C2948633C00ADF66B /* AppDelegate.swift */; };
 		CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */; };
-		CCAFE2912948633C00ADF66B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2902948633C00ADF66B /* ViewController.swift */; };
-		CCAFE2942948633C00ADF66B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAFE2922948633C00ADF66B /* Main.storyboard */; };
+		CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2902948633C00ADF66B /* SearchViewController.swift */; };
 		CCAFE2962948633D00ADF66B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCAFE2952948633D00ADF66B /* Assets.xcassets */; };
 		CCAFE2992948633D00ADF66B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAFE2972948633D00ADF66B /* LaunchScreen.storyboard */; };
 		CCAFE2A42948633D00ADF66B /* ImageSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2A32948633D00ADF66B /* ImageSearchAppTests.swift */; };
 		CCAFE2AF2948633D00ADF66B /* ImageSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */; };
+		CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2C6294863FF00ADF66B /* Assembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,7 @@
 		CCAFE2892948633C00ADF66B /* ImageSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAFE28C2948633C00ADF66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CCAFE2902948633C00ADF66B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CCAFE2932948633C00ADF66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CCAFE2902948633C00ADF66B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CCAFE2952948633D00ADF66B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCAFE2982948633D00ADF66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCAFE29A2948633D00ADF66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		CCAFE2AA2948633D00ADF66B /* ImageSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAppUITests.swift; sourceTree = "<group>"; };
 		CCAFE2B02948633D00ADF66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCAFE2C6294863FF00ADF66B /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +101,9 @@
 			children = (
 				CCAFE28C2948633C00ADF66B /* AppDelegate.swift */,
 				CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */,
-				CCAFE2902948633C00ADF66B /* ViewController.swift */,
-				CCAFE2922948633C00ADF66B /* Main.storyboard */,
-				CCAFE2952948633D00ADF66B /* Assets.xcassets */,
-				CCAFE2972948633D00ADF66B /* LaunchScreen.storyboard */,
-				CCAFE29A2948633D00ADF66B /* Info.plist */,
+				CCAFE2C5294863F000ADF66B /* Assembly */,
+				CCAFE2D12948647400ADF66B /* Scenes */,
+				CCAFE2DD294864E700ADF66B /* Resources */,
 			);
 			path = ImageSearchApp;
 			sourceTree = "<group>";
@@ -126,6 +124,48 @@
 				CCAFE2B02948633D00ADF66B /* Info.plist */,
 			);
 			path = ImageSearchAppUITests;
+			sourceTree = "<group>";
+		};
+		CCAFE2C5294863F000ADF66B /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2C6294863FF00ADF66B /* Assembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CCAFE2D12948647400ADF66B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2D52948648300ADF66B /* SearchScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CCAFE2D52948648300ADF66B /* SearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2D92948648B00ADF66B /* ViewController */,
+			);
+			path = SearchScene;
+			sourceTree = "<group>";
+		};
+		CCAFE2D92948648B00ADF66B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2902948633C00ADF66B /* SearchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CCAFE2DD294864E700ADF66B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CCAFE2952948633D00ADF66B /* Assets.xcassets */,
+				CCAFE2972948633D00ADF66B /* LaunchScreen.storyboard */,
+				CCAFE29A2948633D00ADF66B /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +273,6 @@
 			files = (
 				CCAFE2992948633D00ADF66B /* LaunchScreen.storyboard in Resources */,
 				CCAFE2962948633D00ADF66B /* Assets.xcassets in Resources */,
-				CCAFE2942948633C00ADF66B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCAFE2912948633C00ADF66B /* ViewController.swift in Sources */,
+				CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */,
+				CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */,
 				CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */,
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +336,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CCAFE2922948633C00ADF66B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCAFE2932948633C00ADF66B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CCAFE2972948633D00ADF66B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ImageSearchApp/Info.plist;
+				INFOPLIST_FILE = ImageSearchApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ImageSearchApp/Info.plist;
+				INFOPLIST_FILE = ImageSearchApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
