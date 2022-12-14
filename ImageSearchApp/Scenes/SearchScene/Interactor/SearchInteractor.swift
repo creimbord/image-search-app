@@ -9,14 +9,24 @@ import Foundation
 
 protocol SearchBusinessLogic: AnyObject {
     func fetchPhotos(_ request: SearchModel.FetchPhotos.Request)
+    func selectPhoto(_ request: SearchModel.SelectPhoto.Request)
 }
 
-final class SearchInteractor {
+protocol SearchDataStore {
+    var selectedPhoto: Photo? { get set }
+}
+
+final class SearchInteractor: SearchDataStore {
     
     // MARK: - Properties
+    private var photos: [Photo]?
     var presenter: SearchPresentationLogic?
     var networkService: NetworkServiceProtocol?
     var decodingService: DecodingServiceProtocol?
+    
+    // MARK: - SearchDataStore
+    var selectedPhoto: Photo?
+    
 }
 
 // MARK: - SearchBusinessLogic
@@ -41,6 +51,8 @@ extension SearchInteractor: SearchBusinessLogic {
                 switch decodingResult {
                 case .success(let searchResult):
                     let photos = searchResult.photos?.photo
+                    self?.photos = photos
+                    
                     DispatchQueue.main.async {
                         self?.presenter?.presentFetchedPhotos(.init(photos: photos))
                     }
@@ -53,5 +65,10 @@ extension SearchInteractor: SearchBusinessLogic {
                 debugPrint(error)
             }
         }
+    }
+    
+    func selectPhoto(_ request: SearchModel.SelectPhoto.Request) {
+        selectedPhoto = photos?[request.index]
+        presenter?.presentSelectedPhoto(.init())
     }
 }

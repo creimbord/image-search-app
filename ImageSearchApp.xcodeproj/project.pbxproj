@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCAA23EF2949C9CB0044B03D /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA23EE2949C9CB0044B03D /* PhotoDetailViewController.swift */; };
+		CCAA23F52949CD760044B03D /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA23F42949CD760044B03D /* PhotoDetailModel.swift */; };
+		CCAA23FF2949CEC60044B03D /* PhotoDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA23FE2949CEC60044B03D /* PhotoDetailInteractor.swift */; };
+		CCAA24042949CECE0044B03D /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA24032949CECE0044B03D /* PhotoDetailPresenter.swift */; };
+		CCAA240A2949D5100044B03D /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA24092949D5100044B03D /* SearchRouter.swift */; };
 		CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28C2948633C00ADF66B /* AppDelegate.swift */; };
 		CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */; };
 		CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2902948633C00ADF66B /* SearchViewController.swift */; };
@@ -50,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CCAA23EE2949C9CB0044B03D /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		CCAA23F42949CD760044B03D /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
+		CCAA23FE2949CEC60044B03D /* PhotoDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailInteractor.swift; sourceTree = "<group>"; };
+		CCAA24032949CECE0044B03D /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
+		CCAA24092949D5100044B03D /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		CCAFE2892948633C00ADF66B /* ImageSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAFE28C2948633C00ADF66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +116,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCAA23EC2949C9AC0044B03D /* PhotoDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA23F32949CBF80044B03D /* Model */,
+				CCAA23FD2949CEAD0044B03D /* Presenter */,
+				CCAA23FC2949CEA80044B03D /* Interactor */,
+				CCAA23ED2949C9B40044B03D /* ViewController */,
+			);
+			path = PhotoDetailScene;
+			sourceTree = "<group>";
+		};
+		CCAA23ED2949C9B40044B03D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA23EE2949C9CB0044B03D /* PhotoDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CCAA23F32949CBF80044B03D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA23F42949CD760044B03D /* PhotoDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCAA23FC2949CEA80044B03D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA23FE2949CEC60044B03D /* PhotoDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CCAA23FD2949CEAD0044B03D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA24032949CECE0044B03D /* PhotoDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CCAA24082949D4C60044B03D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA24092949D5100044B03D /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		CCAFE2802948633C00ADF66B = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +230,7 @@
 		CCAFE2D12948647400ADF66B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CCAA23EC2949C9AC0044B03D /* PhotoDetailScene */,
 				CCAFE33F2948F88500ADF66B /* PhotoScene */,
 				CCAFE2D52948648300ADF66B /* SearchScene */,
 			);
@@ -179,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				CCAFE32A2948E4FD00ADF66B /* Model */,
+				CCAA24082949D4C60044B03D /* Router */,
 				CCAFE32C2948E50800ADF66B /* Presenter */,
 				CCAFE32B2948E50000ADF66B /* Interactor */,
 				CCAFE2D92948648B00ADF66B /* ViewController */,
@@ -489,13 +552,18 @@
 				CCAFE3522949254C00ADF66B /* PhotoInteractor.swift in Sources */,
 				CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */,
 				CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */,
+				CCAA23F52949CD760044B03D /* PhotoDetailModel.swift in Sources */,
+				CCAA240A2949D5100044B03D /* SearchRouter.swift in Sources */,
 				CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */,
 				CCAFE2EE2948A83C00ADF66B /* NetworkService.swift in Sources */,
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,
 				CCAFE3172948DB4400ADF66B /* Errors.swift in Sources */,
 				CCAFE34A2949240F00ADF66B /* PhotoModel.swift in Sources */,
 				CCAFE30E2948CEB500ADF66B /* RouteType.swift in Sources */,
+				CCAA23FF2949CEC60044B03D /* PhotoDetailInteractor.swift in Sources */,
+				CCAA24042949CECE0044B03D /* PhotoDetailPresenter.swift in Sources */,
 				CCAFE2FA2948C39900ADF66B /* DecodingService.swift in Sources */,
+				CCAA23EF2949C9CB0044B03D /* PhotoDetailViewController.swift in Sources */,
 				CCAFE2F42948C25C00ADF66B /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

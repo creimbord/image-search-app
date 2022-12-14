@@ -17,6 +17,7 @@ final class PhotoInteractor {
     var requestURL: URL?
     var presenter: PhotoPresentationLogic?
     var networkService: NetworkServiceProtocol?
+    
 }
 
 // MARK: - PhotoBusinessLogic

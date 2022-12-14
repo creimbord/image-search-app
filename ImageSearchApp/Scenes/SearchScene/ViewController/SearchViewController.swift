@@ -9,11 +9,13 @@ import UIKit
 
 protocol SearchDisplayLogic: AnyObject {
     func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel)
+    func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel)
 }
 
 final class SearchViewController: UIViewController {
     
     // MARK: - Properties
+    var router: SearchRoutingLogic?
     var interactor: SearchBusinessLogic?
     private var photos: [Photo] = []
     private var searchQuery = ""
@@ -78,6 +80,10 @@ extension SearchViewController: SearchDisplayLogic {
         photos = viewModel.photos
         photosCollectionView.reloadData()
     }
+    
+    func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel) {
+        router?.routeToPhotoDetail()
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -111,6 +117,13 @@ extension SearchViewController: UICollectionViewDataSource {
         cell.configure(with: photo)
         
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        interactor?.selectPhoto(.init(index: indexPath.item))
     }
 }
 

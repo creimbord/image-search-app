@@ -9,6 +9,7 @@ import Foundation
 
 protocol SearchPresentationLogic: AnyObject {
     func presentFetchedPhotos(_ response: SearchModel.FetchPhotos.Response)
+    func presentSelectedPhoto(_ response: SearchModel.SelectPhoto.Response)
 }
 
 final class SearchPresenter: SearchPresentationLogic {
@@ -20,5 +21,9 @@ final class SearchPresenter: SearchPresentationLogic {
     func presentFetchedPhotos(_ response: SearchModel.FetchPhotos.Response) {
         guard let photos = response.photos else { return }
         viewController?.displayFetchedPhotos(.init(photos: photos))
+    }
+    
+    func presentSelectedPhoto(_ response: SearchModel.SelectPhoto.Response) {
+        viewController?.displaySelectedPhoto(.init())
     }
 }

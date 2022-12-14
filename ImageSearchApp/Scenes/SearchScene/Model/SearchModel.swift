@@ -25,4 +25,15 @@ enum SearchModel {
             let photos: [Photo]
         }
     }
+    
+    // Select the concrete photo
+    enum SelectPhoto {
+        struct Request {
+            let index: Int
+        }
+        
+        struct Response {}
+        
+        struct ViewModel {}
+    }
 }
