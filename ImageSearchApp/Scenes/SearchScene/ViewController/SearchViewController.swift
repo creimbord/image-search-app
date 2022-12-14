@@ -83,9 +83,11 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchDisplayLogic
 extension SearchViewController: SearchDisplayLogic {
     func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel) {
-        photosCollectionView.performBatchUpdates({
-            photosCollectionView.insertItems(at: viewModel.insertIndexPaths)
-        }, completion: nil)
+        UIView.performWithoutAnimation {
+            photosCollectionView.performBatchUpdates({
+                photosCollectionView.insertItems(at: viewModel.insertIndexPaths)
+            }, completion: nil)
+        }
     }
     
     func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel) {
@@ -174,6 +176,7 @@ private extension SearchViewController {
     
     func setupFrames() {
         photosCollectionView.frame = view.frame
+        photosCollectionView.frame.size.height -= view.safeAreaInsets.bottom
         placeholderView.frame = layoutFrame
     }
 }
