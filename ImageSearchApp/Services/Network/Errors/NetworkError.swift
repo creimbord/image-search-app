@@ -1,5 +1,5 @@
 //
-//  Errors.swift
+//  NetworkError.swift
 //  ImageSearchApp
 //
 //  Created by Rodion Artyukhin on 13.12.2022.

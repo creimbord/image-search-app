@@ -19,8 +19,9 @@ final class SearchPresenter: SearchPresentationLogic {
     
     // MARK: - SearchPresentationLogic
     func presentFetchedPhotos(_ response: SearchModel.FetchPhotos.Response) {
-        guard let photos = response.photos else { return }
-        viewController?.displayFetchedPhotos(.init(photos: photos))
+        let indicesRange = response.oldPhotosCount..<response.newPhotosCount
+        let insertIndexPaths = indicesRange.map { IndexPath(item: $0, section: 0) }
+        viewController?.displayFetchedPhotos(.init(insertIndexPaths: insertIndexPaths))
     }
     
     func presentSelectedPhoto(_ response: SearchModel.SelectPhoto.Response) {

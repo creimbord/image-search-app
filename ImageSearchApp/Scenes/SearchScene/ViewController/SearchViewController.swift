@@ -16,8 +16,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Properties
     var router: SearchRoutingLogic?
-    var interactor: SearchBusinessLogic?
-    private var photos: [Photo] = []
+    var interactor: (SearchBusinessLogic & SearchDataStore)?
     private var searchQuery = ""
     
     // MARK: - Constants
@@ -47,17 +46,24 @@ final class SearchViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.sectionInset = Constants.sectionInset
+        layout.footerReferenceSize = CGSize(width: Constants.screenWidth, height: 50)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = interactor?.dataSource
+        collectionView.backgroundColor = .white
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        
         collectionView.register(
             PhotoCell.self,
             forCellWithReuseIdentifier: String(describing: PhotoCell.self)
         )
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .white
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(
+            LoadingFooter.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: String(describing: LoadingFooter.self)
+        )
         
         return collectionView
     }()
@@ -77,8 +83,9 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchDisplayLogic
 extension SearchViewController: SearchDisplayLogic {
     func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel) {
-        photos = viewModel.photos
-        photosCollectionView.reloadData()
+        photosCollectionView.performBatchUpdates({
+            photosCollectionView.insertItems(at: viewModel.insertIndexPaths)
+        }, completion: nil)
     }
     
     func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel) {
@@ -93,7 +100,6 @@ extension SearchViewController: UISearchBarDelegate {
         
         interactor?.fetchPhotos(.init(
             query: searchQuery,
-            page: 1,
             photosPerPage: numberOfSections * Constants.numberOfItemsInSection
         ))
         
@@ -103,27 +109,27 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension SearchViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photos.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photo = photos[indexPath.item]
-        let reuseID = String(describing: PhotoCell.self)
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! PhotoCell
-        cell.configure(with: photo)
-        
-        return cell
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         interactor?.selectPhoto(.init(index: indexPath.item))
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension SearchViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let contentHeight = photosCollectionView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+        let bottomOffset = UIScreen.main.bounds.height * 0.4
+        
+        if position > (contentHeight - scrollViewHeight - bottomOffset) {
+            interactor?.fetchPhotos(.init(
+                query: searchQuery,
+                photosPerPage: numberOfSections * Constants.numberOfItemsInSection
+            ))
+        }
     }
 }
 
@@ -157,6 +163,7 @@ private extension SearchViewController {
         title = Constants.title
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
+        interactor?.dataSource?.collectionView = photosCollectionView
     }
     
     func addSubviews() {
@@ -166,7 +173,7 @@ private extension SearchViewController {
     }
     
     func setupFrames() {
-        photosCollectionView.frame = layoutFrame
+        photosCollectionView.frame = view.frame
         placeholderView.frame = layoutFrame
     }
 }

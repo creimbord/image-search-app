@@ -13,16 +13,16 @@ enum SearchModel {
     enum FetchPhotos {
         struct Request {
             let query: String
-            let page: Int
             let photosPerPage: Int
         }
         
         struct Response {
-            let photos: [Photo]?
+            let oldPhotosCount: Int
+            let newPhotosCount: Int
         }
         
         struct ViewModel {
-            let photos: [Photo]
+            let insertIndexPaths: [IndexPath]
         }
     }
     

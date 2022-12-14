@@ -12,6 +12,9 @@
 		CCAA23FF2949CEC60044B03D /* PhotoDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA23FE2949CEC60044B03D /* PhotoDetailInteractor.swift */; };
 		CCAA24042949CECE0044B03D /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA24032949CECE0044B03D /* PhotoDetailPresenter.swift */; };
 		CCAA240A2949D5100044B03D /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA24092949D5100044B03D /* SearchRouter.swift */; };
+		CCAC27FB294A336500245F83 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC27FA294A336500245F83 /* SearchDataSource.swift */; };
+		CCAC2806294A410F00245F83 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC2805294A410F00245F83 /* DataError.swift */; };
+		CCAC280B294A5CE800245F83 /* LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC280A294A5CE800245F83 /* LoadingFooter.swift */; };
 		CCAFE28D2948633C00ADF66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28C2948633C00ADF66B /* AppDelegate.swift */; };
 		CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */; };
 		CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2902948633C00ADF66B /* SearchViewController.swift */; };
@@ -26,7 +29,7 @@
 		CCAFE2FA2948C39900ADF66B /* DecodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2F92948C39900ADF66B /* DecodingService.swift */; };
 		CCAFE3032948C45200ADF66B /* FlickrRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3022948C45200ADF66B /* FlickrRoute.swift */; };
 		CCAFE30E2948CEB500ADF66B /* RouteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE30D2948CEB500ADF66B /* RouteType.swift */; };
-		CCAFE3172948DB4400ADF66B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3162948DB4400ADF66B /* Errors.swift */; };
+		CCAFE3172948DB4400ADF66B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3162948DB4400ADF66B /* NetworkError.swift */; };
 		CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE31F2948DE8E00ADF66B /* PhotoSize.swift */; };
 		CCAFE32E2948E5BF00ADF66B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE32D2948E5BF00ADF66B /* SearchModel.swift */; };
 		CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3352948E6C300ADF66B /* SearchInteractor.swift */; };
@@ -60,6 +63,9 @@
 		CCAA23FE2949CEC60044B03D /* PhotoDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailInteractor.swift; sourceTree = "<group>"; };
 		CCAA24032949CECE0044B03D /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
 		CCAA24092949D5100044B03D /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		CCAC27FA294A336500245F83 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
+		CCAC2805294A410F00245F83 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		CCAC280A294A5CE800245F83 /* LoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooter.swift; sourceTree = "<group>"; };
 		CCAFE2892948633C00ADF66B /* ImageSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAFE28C2948633C00ADF66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCAFE28E2948633C00ADF66B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +86,7 @@
 		CCAFE2F92948C39900ADF66B /* DecodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingService.swift; sourceTree = "<group>"; };
 		CCAFE3022948C45200ADF66B /* FlickrRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrRoute.swift; sourceTree = "<group>"; };
 		CCAFE30D2948CEB500ADF66B /* RouteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteType.swift; sourceTree = "<group>"; };
-		CCAFE3162948DB4400ADF66B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		CCAFE3162948DB4400ADF66B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CCAFE31F2948DE8E00ADF66B /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
 		CCAFE32D2948E5BF00ADF66B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		CCAFE3352948E6C300ADF66B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
@@ -167,6 +173,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		CCAC27F9294A334A00245F83 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				CCAC27FA294A336500245F83 /* SearchDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		CCAFE2802948633C00ADF66B = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +258,7 @@
 				CCAA24082949D4C60044B03D /* Router */,
 				CCAFE32C2948E50800ADF66B /* Presenter */,
 				CCAFE32B2948E50000ADF66B /* Interactor */,
+				CCAC27F9294A334A00245F83 /* DataSource */,
 				CCAFE2D92948648B00ADF66B /* ViewController */,
 			);
 			path = SearchScene;
@@ -280,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				CCAFE2E32948728B00ADF66B /* PlaceholderView.swift */,
+				CCAC280A294A5CE800245F83 /* LoadingFooter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,7 +348,8 @@
 		CCAFE3152948DB3700ADF66B /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				CCAFE3162948DB4400ADF66B /* Errors.swift */,
+				CCAFE3162948DB4400ADF66B /* NetworkError.swift */,
+				CCAC2805294A410F00245F83 /* DataError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -552,18 +569,21 @@
 				CCAFE3522949254C00ADF66B /* PhotoInteractor.swift in Sources */,
 				CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */,
 				CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */,
+				CCAC27FB294A336500245F83 /* SearchDataSource.swift in Sources */,
 				CCAA23F52949CD760044B03D /* PhotoDetailModel.swift in Sources */,
 				CCAA240A2949D5100044B03D /* SearchRouter.swift in Sources */,
 				CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */,
 				CCAFE2EE2948A83C00ADF66B /* NetworkService.swift in Sources */,
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,
-				CCAFE3172948DB4400ADF66B /* Errors.swift in Sources */,
+				CCAFE3172948DB4400ADF66B /* NetworkError.swift in Sources */,
 				CCAFE34A2949240F00ADF66B /* PhotoModel.swift in Sources */,
+				CCAC280B294A5CE800245F83 /* LoadingFooter.swift in Sources */,
 				CCAFE30E2948CEB500ADF66B /* RouteType.swift in Sources */,
 				CCAA23FF2949CEC60044B03D /* PhotoDetailInteractor.swift in Sources */,
 				CCAA24042949CECE0044B03D /* PhotoDetailPresenter.swift in Sources */,
 				CCAFE2FA2948C39900ADF66B /* DecodingService.swift in Sources */,
 				CCAA23EF2949C9CB0044B03D /* PhotoDetailViewController.swift in Sources */,
+				CCAC2806294A410F00245F83 /* DataError.swift in Sources */,
 				CCAFE2F42948C25C00ADF66B /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

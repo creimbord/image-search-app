@@ -15,11 +15,13 @@ enum Assembly {
         let viewController = SearchViewController()
         let networkService = NetworkService()
         let decodingService = DecodingService()
+        let dataSource = SearchDataSource()
         
         router.dataStore = interactor
         router.viewController = viewController
         presenter.viewController = viewController
         interactor.presenter = presenter
+        interactor.dataSource = dataSource
         interactor.networkService = networkService
         interactor.decodingService = decodingService
         viewController.router = router

@@ -54,7 +54,7 @@ extension PhotoDetailInteractor: PhotoDetailBusinessLogic {
                     presenter?.presentFetchedPhoto(.init(photoData: photoData))
                 }
             case .failure(let error):
-                debugPrint(error)
+                debugPrint(error.localizedDescription)
             }
         }
     }

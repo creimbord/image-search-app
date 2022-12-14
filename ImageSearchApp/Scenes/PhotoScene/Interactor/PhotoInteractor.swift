@@ -42,7 +42,7 @@ extension PhotoInteractor: PhotoBusinessLogic {
                     }
                 }
             case .failure(let error):
-                debugPrint(error)
+                debugPrint(error.localizedDescription)
             }
         }
     }
