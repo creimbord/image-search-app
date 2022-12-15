@@ -13,7 +13,7 @@ protocol RecentQueriesBusinessLogic: AnyObject {
 }
 
 protocol RecentQueriesDataStore {
-    var dataSource: RecentQueriesDataSource? { get }
+    var dataSource: RecentQueriesDataLogic? { get }
 }
 
 final class RecentQueriesInteractor: RecentQueriesDataStore {
@@ -22,7 +22,7 @@ final class RecentQueriesInteractor: RecentQueriesDataStore {
     var presenter: RecentQueriesPresentationLogic?
     
     // MARK: - RecentQueriesDataStore
-    var dataSource: RecentQueriesDataSource?
+    var dataSource: RecentQueriesDataLogic?
 }
 
 // MARK: - RecentQueriesBusinessLogic

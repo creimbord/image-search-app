@@ -20,7 +20,6 @@
 		CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2902948633C00ADF66B /* SearchViewController.swift */; };
 		CCAFE2962948633D00ADF66B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCAFE2952948633D00ADF66B /* Assets.xcassets */; };
 		CCAFE2992948633D00ADF66B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAFE2972948633D00ADF66B /* LaunchScreen.storyboard */; };
-		CCAFE2A42948633D00ADF66B /* ImageSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2A32948633D00ADF66B /* ImageSearchAppTests.swift */; };
 		CCAFE2AF2948633D00ADF66B /* ImageSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */; };
 		CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2C6294863FF00ADF66B /* Assembly.swift */; };
 		CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE2E32948728B00ADF66B /* PlaceholderView.swift */; };
@@ -43,6 +42,9 @@
 		CCB632D2294B34C0006A734B /* RecentQueriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */; };
 		CCB632D8294B34F2006A734B /* RecentQueriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632D7294B34F2006A734B /* RecentQueriesPresenter.swift */; };
 		CCB632E5294B6F76006A734B /* RecentQueryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632E4294B6F76006A734B /* RecentQueryCell.swift */; };
+		CCB632F3294B84D0006A734B /* RecentQueriesPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632F2294B84D0006A734B /* RecentQueriesPresentationLogicSpy.swift */; };
+		CCB632FB294B85C1006A734B /* RecentQueriesDataLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632FA294B85C1006A734B /* RecentQueriesDataLogicSpy.swift */; };
+		CCB63303294B8923006A734B /* RecentQueriesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB63302294B8923006A734B /* RecentQueriesInteractorTests.swift */; };
 		CCD029BC294A914900A410C2 /* RecentQueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD029BB294A914900A410C2 /* RecentQueriesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +82,6 @@
 		CCAFE2982948633D00ADF66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCAFE29A2948633D00ADF66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCAFE29F2948633D00ADF66B /* ImageSearchAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageSearchAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCAFE2A32948633D00ADF66B /* ImageSearchAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAppTests.swift; sourceTree = "<group>"; };
 		CCAFE2A52948633D00ADF66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCAFE2AA2948633D00ADF66B /* ImageSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAFE2AE2948633D00ADF66B /* ImageSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAppUITests.swift; sourceTree = "<group>"; };
@@ -106,6 +107,9 @@
 		CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesInteractor.swift; sourceTree = "<group>"; };
 		CCB632D7294B34F2006A734B /* RecentQueriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesPresenter.swift; sourceTree = "<group>"; };
 		CCB632E4294B6F76006A734B /* RecentQueryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueryCell.swift; sourceTree = "<group>"; };
+		CCB632F2294B84D0006A734B /* RecentQueriesPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		CCB632FA294B85C1006A734B /* RecentQueriesDataLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesDataLogicSpy.swift; sourceTree = "<group>"; };
+		CCB63302294B8923006A734B /* RecentQueriesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesInteractorTests.swift; sourceTree = "<group>"; };
 		CCD029BB294A914900A410C2 /* RecentQueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,7 +234,8 @@
 		CCAFE2A22948633D00ADF66B /* ImageSearchAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				CCAFE2A32948633D00ADF66B /* ImageSearchAppTests.swift */,
+				CCB632F0294B8479006A734B /* TestDoubles */,
+				CCB63302294B8923006A734B /* RecentQueriesInteractorTests.swift */,
 				CCAFE2A52948633D00ADF66B /* Info.plist */,
 			);
 			path = ImageSearchAppTests;
@@ -474,6 +479,23 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		CCB632F0294B8479006A734B /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632F1294B847E006A734B /* Spies */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		CCB632F1294B847E006A734B /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632F2294B84D0006A734B /* RecentQueriesPresentationLogicSpy.swift */,
+				CCB632FA294B85C1006A734B /* RecentQueriesDataLogicSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
 		CCD029BA294A911B00A410C2 /* RecentQueriesScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,7 +686,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCAFE2A42948633D00ADF66B /* ImageSearchAppTests.swift in Sources */,
+				CCB632FB294B85C1006A734B /* RecentQueriesDataLogicSpy.swift in Sources */,
+				CCB63303294B8923006A734B /* RecentQueriesInteractorTests.swift in Sources */,
+				CCB632F3294B84D0006A734B /* RecentQueriesPresentationLogicSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

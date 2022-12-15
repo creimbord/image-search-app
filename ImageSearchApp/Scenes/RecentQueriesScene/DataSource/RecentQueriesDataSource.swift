@@ -7,17 +7,27 @@
 
 import UIKit
 
-final class RecentQueriesDataSource: NSObject {
+typealias Query = (query: String, timestamp: Date)
+
+protocol RecentQueriesDataLogic: UITableViewDataSource {
+    var uniqueQueries: [String: Int] { get set }
+    var queries: [Query] { get set }
+    var sortedQueries: [Query] { get }
+}
+
+final class RecentQueriesDataSource: NSObject, RecentQueriesDataLogic {
     
-    // MARK: - Properties
-    typealias Query = (query: String, timestamp: Date)
+    // MARK: - RecentQueriesDataLogic
     var uniqueQueries: [String: Int] = [:]
     var queries: [Query] = []
+    var sortedQueries: [Query] {
+        queries.sorted(by: { $0.timestamp > $1.timestamp })
+    }
     
 }
 
 // MARK: - UITableViewDataSource
-extension RecentQueriesDataSource: UITableViewDataSource {
+extension RecentQueriesDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         queries.count
     }
@@ -30,12 +40,5 @@ extension RecentQueriesDataSource: UITableViewDataSource {
         cell.configure(with: query)
         
         return cell
-    }
-}
-
-// MARK: - Computed properties
-extension RecentQueriesDataSource {
-    var sortedQueries: [Query] {
-        queries.sorted(by: { $0.timestamp > $1.timestamp })
     }
 }
