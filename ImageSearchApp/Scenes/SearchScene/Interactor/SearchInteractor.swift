@@ -13,7 +13,6 @@ protocol SearchBusinessLogic: AnyObject {
 }
 
 protocol SearchDataStore {
-    var isPaginating: Bool { get set }
     var selectedPhoto: Photo? { get set }
     var dataSource: SearchDataSource? { get }
 }
@@ -26,15 +25,17 @@ final class SearchInteractor: SearchDataStore {
     var decodingService: DecodingServiceProtocol?
 
     // MARK: - SearchDataStore
-    var isPaginating = false
     var selectedPhoto: Photo?
     var dataSource: SearchDataSource?
     
     // MARK: - Pagination
+    private var isLastPage = false
+    private var isPaginating = false
     private var searchQuery = ""
     private var currentPage = 1
     private var totalPagesCount = 1
     private var oldPhotosCount = 0
+    private var photosPerPage = 0
     
 }
 
@@ -45,11 +46,12 @@ extension SearchInteractor: SearchBusinessLogic {
         
         guard isPaginationEnabled else { return }
         isPaginating = true
+        photosPerPage = request.photosPerPage
         
         let search = FlickrRoute.search(
             query: request.query,
             page: currentPage,
-            perpage: request.photosPerPage
+            perpage: photosPerPage
         )
         
         networkService?.fetch(route: search) { [weak self] result in
@@ -67,7 +69,7 @@ extension SearchInteractor: SearchBusinessLogic {
                     do {
                         try self?.updatePhotos(searchResult.photos)
                         DispatchQueue.main.async {
-                            self?.currentPage += 1
+                            self?.incrementPage()
                             self?.stopPagination()
                             self?.presenter?.presentFetchedPhotos(.init(
                                 oldPhotosCount: self?.oldPhotosCount ?? 0,
@@ -100,6 +102,7 @@ private extension SearchInteractor {
     func resetPaginationIfNeeded(for query: String) {
         guard searchQuery != query else { return }
         searchQuery = query
+        isLastPage = false
         currentPage = 1
         totalPagesCount = 1
         dataSource?.photos = []
@@ -107,15 +110,23 @@ private extension SearchInteractor {
     }
     
     func updatePhotos(_ photos: PagedPhotoSearchResult?) throws {
-        setTotalPagesCount(photos?.total)
+        guard let photos = photos else { throw DataError.photosDataIsMissing }
+        setTotalPagesCount(photos.total)
         oldPhotosCount = dataSource?.photos.count ?? 0
-        guard let photos = photos?.photo else { throw DataError.photosDataIsMissing }
-        dataSource?.photos.append(contentsOf: photos)
+        dataSource?.photos.append(contentsOf: photos.photo)
     }
     
-    func setTotalPagesCount(_ pagesCount: Int?) {
-        if totalPagesCount == 1 {
-            totalPagesCount = pagesCount ?? 1
+    func setTotalPagesCount(_ totalPhotosCount: Int) {
+        if totalPagesCount == 1 && totalPhotosCount > photosPerPage {
+            totalPagesCount = totalPhotosCount / photosPerPage
+        }
+    }
+    
+    func incrementPage() {
+        if (currentPage + 1) <= totalPagesCount {
+            currentPage += 1
+        } else {
+            isLastPage = true
         }
     }
     
@@ -130,6 +141,6 @@ private extension SearchInteractor {
     var isPaginationEnabled: Bool {
         let searchQueryIsNotEmpty = !searchQuery.isEmpty
         let pagesCountIsNotExceeded = currentPage <= totalPagesCount
-        return !isPaginating && searchQueryIsNotEmpty && pagesCountIsNotExceeded
+        return !isPaginating && !isLastPage && searchQueryIsNotEmpty && pagesCountIsNotExceeded
     }
 }

@@ -33,8 +33,6 @@ final class LoadingFooter: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         footerView.frame = frame
-        loader.sizeToFit()
         loader.center = footerView.center
-        loader.frame.origin.y = loader.frame.origin.y - 16
     }
 }

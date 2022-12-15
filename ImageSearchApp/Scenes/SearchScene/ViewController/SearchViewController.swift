@@ -28,13 +28,15 @@ final class SearchViewController: UIViewController {
         static let sideOffsets: CGFloat = 32
         static let numberOfItemsInSection = 3
         static let titleHeight: CGFloat = 51
-        static let sectionInset: UIEdgeInsets = .init(top: 0, left: 16, bottom: 16, right: 16)
+        static let sectionInset: UIEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     // MARK: - Views
+    private let recentQueriesScene = Assembly.createRecentQueriesScene()
     private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: recentQueriesScene)
         searchController.searchBar.delegate = self
+        searchController.showsSearchResultsController = true
         return searchController
     }()
     private let placeholderView = PlaceholderView(
@@ -74,6 +76,12 @@ final class SearchViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupFrames()
@@ -99,12 +107,7 @@ extension SearchViewController: SearchDisplayLogic {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text.map { searchQuery = $0 }
-        
-        interactor?.fetchPhotos(.init(
-            query: searchQuery,
-            photosPerPage: numberOfSections * Constants.numberOfItemsInSection
-        ))
-        
+        fetchPhotos(for: searchQuery)
         placeholderView.isHidden = true
         searchController.isActive = false
         searchController.searchBar.text = searchQuery
@@ -127,10 +130,7 @@ extension SearchViewController: UIScrollViewDelegate {
         let bottomOffset = UIScreen.main.bounds.height * 0.4
         
         if position > (contentHeight - scrollViewHeight - bottomOffset) {
-            interactor?.fetchPhotos(.init(
-                query: searchQuery,
-                photosPerPage: numberOfSections * Constants.numberOfItemsInSection
-            ))
+            fetchPhotos(for: searchQuery)
         }
     }
 }
@@ -139,6 +139,16 @@ extension SearchViewController: UIScrollViewDelegate {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: thumbnailSize, height: thumbnailSize + Constants.titleHeight)
+    }
+}
+
+// MARK: - Methods
+private extension SearchViewController {
+    func fetchPhotos(for query: String) {
+        interactor?.fetchPhotos(.init(
+            query: query,
+            photosPerPage: numberOfSections * Constants.numberOfItemsInSection
+        ))
     }
 }
 

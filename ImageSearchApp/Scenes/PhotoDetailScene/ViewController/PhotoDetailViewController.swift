@@ -36,14 +36,14 @@ final class PhotoDetailViewController: UIViewController {
         interactor?.populatePhoto(.init())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleNavigationBarApperance()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupFrames()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        toggleNavigationBarApperance()
     }
 }
 
@@ -67,7 +67,6 @@ extension PhotoDetailViewController: PhotoDetailDisplayLogic {
 private extension PhotoDetailViewController {
     func setupViews() {
         addSubviews()
-        toggleNavigationBarApperance()
         view.backgroundColor = .black
     }
     

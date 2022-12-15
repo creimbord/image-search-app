@@ -44,6 +44,20 @@ enum Assembly {
         return viewController
     }
     
+    static func createRecentQueriesScene() -> RecentQueriesViewController {
+        let presenter = RecentQueriesPresenter()
+        let interactor = RecentQueriesInteractor()
+        let viewController = RecentQueriesViewController()
+        let dataSource = RecentQueriesDataSource()
+        
+        presenter.viewController = viewController
+        interactor.presenter = presenter
+        interactor.dataSource = dataSource
+        viewController.interactor = interactor
+        
+        return viewController
+    }
+    
     static func preparePhotoScene(for cell: PhotoCell) {
         let presenter = PhotoPresenter()
         let interactor = PhotoInteractor()

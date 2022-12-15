@@ -38,6 +38,12 @@
 		CCAFE34A2949240F00ADF66B /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3492949240F00ADF66B /* PhotoModel.swift */; };
 		CCAFE3522949254C00ADF66B /* PhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3512949254C00ADF66B /* PhotoInteractor.swift */; };
 		CCAFE3572949256300ADF66B /* PhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3562949256300ADF66B /* PhotoPresenter.swift */; };
+		CCB632C3294B334D006A734B /* RecentQueriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632C2294B334D006A734B /* RecentQueriesDataSource.swift */; };
+		CCB632C9294B33F1006A734B /* RecentQueriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632C8294B33F1006A734B /* RecentQueriesModel.swift */; };
+		CCB632D2294B34C0006A734B /* RecentQueriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */; };
+		CCB632D8294B34F2006A734B /* RecentQueriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632D7294B34F2006A734B /* RecentQueriesPresenter.swift */; };
+		CCB632E5294B6F76006A734B /* RecentQueryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632E4294B6F76006A734B /* RecentQueryCell.swift */; };
+		CCD029BC294A914900A410C2 /* RecentQueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD029BB294A914900A410C2 /* RecentQueriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +101,12 @@
 		CCAFE3492949240F00ADF66B /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		CCAFE3512949254C00ADF66B /* PhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInteractor.swift; sourceTree = "<group>"; };
 		CCAFE3562949256300ADF66B /* PhotoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenter.swift; sourceTree = "<group>"; };
+		CCB632C2294B334D006A734B /* RecentQueriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesDataSource.swift; sourceTree = "<group>"; };
+		CCB632C8294B33F1006A734B /* RecentQueriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesModel.swift; sourceTree = "<group>"; };
+		CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesInteractor.swift; sourceTree = "<group>"; };
+		CCB632D7294B34F2006A734B /* RecentQueriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesPresenter.swift; sourceTree = "<group>"; };
+		CCB632E4294B6F76006A734B /* RecentQueryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueryCell.swift; sourceTree = "<group>"; };
+		CCD029BB294A914900A410C2 /* RecentQueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,9 +256,10 @@
 		CCAFE2D12948647400ADF66B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CCAA23EC2949C9AC0044B03D /* PhotoDetailScene */,
-				CCAFE33F2948F88500ADF66B /* PhotoScene */,
 				CCAFE2D52948648300ADF66B /* SearchScene */,
+				CCAFE33F2948F88500ADF66B /* PhotoScene */,
+				CCAA23EC2949C9AC0044B03D /* PhotoDetailScene */,
+				CCD029BA294A911B00A410C2 /* RecentQueriesScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -429,6 +442,59 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CCB632C1294B333C006A734B /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632C2294B334D006A734B /* RecentQueriesDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		CCB632C7294B33DB006A734B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632C8294B33F1006A734B /* RecentQueriesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCB632D0294B34AE006A734B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CCB632D6294B34E2006A734B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632D7294B34F2006A734B /* RecentQueriesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CCD029BA294A911B00A410C2 /* RecentQueriesScene */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632C7294B33DB006A734B /* Model */,
+				CCB632D6294B34E2006A734B /* Presenter */,
+				CCB632D0294B34AE006A734B /* Interactor */,
+				CCB632C1294B333C006A734B /* DataSource */,
+				CCD029C3294A915000A410C2 /* ViewController */,
+			);
+			path = RecentQueriesScene;
+			sourceTree = "<group>";
+		};
+		CCD029C3294A915000A410C2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CCB632E4294B6F76006A734B /* RecentQueryCell.swift */,
+				CCD029BB294A914900A410C2 /* RecentQueriesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -561,6 +627,7 @@
 				CCAFE32E2948E5BF00ADF66B /* SearchModel.swift in Sources */,
 				CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */,
 				CCAFE3572949256300ADF66B /* PhotoPresenter.swift in Sources */,
+				CCB632E5294B6F76006A734B /* RecentQueryCell.swift in Sources */,
 				CCAFE33B2948E9B700ADF66B /* SearchPresenter.swift in Sources */,
 				CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */,
 				CCAFE3422948F8AB00ADF66B /* PhotoCell.swift in Sources */,
@@ -568,8 +635,11 @@
 				CCAFE3032948C45200ADF66B /* FlickrRoute.swift in Sources */,
 				CCAFE3522949254C00ADF66B /* PhotoInteractor.swift in Sources */,
 				CCAFE3202948DE8E00ADF66B /* PhotoSize.swift in Sources */,
+				CCB632C3294B334D006A734B /* RecentQueriesDataSource.swift in Sources */,
 				CCAFE3362948E6C300ADF66B /* SearchInteractor.swift in Sources */,
 				CCAC27FB294A336500245F83 /* SearchDataSource.swift in Sources */,
+				CCD029BC294A914900A410C2 /* RecentQueriesViewController.swift in Sources */,
+				CCB632D8294B34F2006A734B /* RecentQueriesPresenter.swift in Sources */,
 				CCAA23F52949CD760044B03D /* PhotoDetailModel.swift in Sources */,
 				CCAA240A2949D5100044B03D /* SearchRouter.swift in Sources */,
 				CCAFE2E42948728B00ADF66B /* PlaceholderView.swift in Sources */,
@@ -577,11 +647,13 @@
 				CCAFE28F2948633C00ADF66B /* SceneDelegate.swift in Sources */,
 				CCAFE3172948DB4400ADF66B /* NetworkError.swift in Sources */,
 				CCAFE34A2949240F00ADF66B /* PhotoModel.swift in Sources */,
+				CCB632C9294B33F1006A734B /* RecentQueriesModel.swift in Sources */,
 				CCAC280B294A5CE800245F83 /* LoadingFooter.swift in Sources */,
 				CCAFE30E2948CEB500ADF66B /* RouteType.swift in Sources */,
 				CCAA23FF2949CEC60044B03D /* PhotoDetailInteractor.swift in Sources */,
 				CCAA24042949CECE0044B03D /* PhotoDetailPresenter.swift in Sources */,
 				CCAFE2FA2948C39900ADF66B /* DecodingService.swift in Sources */,
+				CCB632D2294B34C0006A734B /* RecentQueriesInteractor.swift in Sources */,
 				CCAA23EF2949C9CB0044B03D /* PhotoDetailViewController.swift in Sources */,
 				CCAC2806294A410F00245F83 /* DataError.swift in Sources */,
 				CCAFE2F42948C25C00ADF66B /* Models.swift in Sources */,
