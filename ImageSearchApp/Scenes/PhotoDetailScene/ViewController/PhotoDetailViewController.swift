@@ -79,7 +79,6 @@ private extension PhotoDetailViewController {
     }
     
     func toggleNavigationBarApperance() {
-        navigationController?.navigationBar.isTranslucent.toggle()
         navigationController?.navigationBar.prefersLargeTitles.toggle()
     }
 }

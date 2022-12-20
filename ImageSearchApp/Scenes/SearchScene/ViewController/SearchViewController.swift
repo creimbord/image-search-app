@@ -36,6 +36,7 @@ final class SearchViewController: UIViewController {
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: recentQueriesScene)
         searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
         searchController.showsSearchResultsController = true
         return searchController
     }()
@@ -78,7 +79,6 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -127,9 +127,8 @@ extension SearchViewController: UIScrollViewDelegate {
         let position = scrollView.contentOffset.y
         let contentHeight = photosCollectionView.contentSize.height
         let scrollViewHeight = scrollView.frame.size.height
-        let bottomOffset = UIScreen.main.bounds.height * 0.4
         
-        if position > (contentHeight - scrollViewHeight - bottomOffset) {
+        if position > (contentHeight - scrollViewHeight * 2) {
             fetchPhotos(for: searchQuery)
         }
     }
@@ -138,7 +137,7 @@ extension SearchViewController: UIScrollViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: thumbnailSize, height: thumbnailSize + Constants.titleHeight)
+        CGSize(width: thumbnailWidth, height: thumbnailWidth + Constants.titleHeight)
     }
 }
 
@@ -159,12 +158,13 @@ private extension SearchViewController {
     }
     
     var numberOfSections: Int {
-        Int(round(layoutFrame.height / thumbnailSize))
+        Int(round(layoutFrame.height / thumbnailWidth))
     }
     
-    var thumbnailSize: CGFloat {
+    var thumbnailWidth: CGFloat {
         let offsets = Constants.spaceOffsets + Constants.sideOffsets
-        return (Constants.screenWidth - offsets) / CGFloat(Constants.numberOfItemsInSection)
+        let width = (Constants.screenWidth - offsets) / CGFloat(Constants.numberOfItemsInSection)
+        return floor(width)
     }
 }
 
