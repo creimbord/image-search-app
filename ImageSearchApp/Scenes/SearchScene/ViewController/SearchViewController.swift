@@ -10,6 +10,7 @@ import UIKit
 protocol SearchDisplayLogic: AnyObject {
     func displayFetchedPhotos(_ viewModel: SearchModel.FetchPhotos.ViewModel)
     func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel)
+    func displayReloadedPhotos(_ viewModel: SearchModel.ReloadPhotos.ViewModel)
 }
 
 final class SearchViewController: UIViewController {
@@ -101,6 +102,10 @@ extension SearchViewController: SearchDisplayLogic {
     func displaySelectedPhoto(_ viewModel: SearchModel.SelectPhoto.ViewModel) {
         router?.routeToPhotoDetail()
     }
+    
+    func displayReloadedPhotos(_ viewModel: SearchModel.ReloadPhotos.ViewModel) {
+        photosCollectionView.reloadData()
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -175,7 +180,6 @@ private extension SearchViewController {
         title = Constants.title
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
-        interactor?.dataSource?.collectionView = photosCollectionView
     }
     
     func addSubviews() {

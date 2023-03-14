@@ -10,6 +10,7 @@ import Foundation
 protocol SearchBusinessLogic: AnyObject {
     func fetchPhotos(_ request: SearchModel.FetchPhotos.Request)
     func selectPhoto(_ request: SearchModel.SelectPhoto.Request)
+    func reloadPhotos(_ request: SearchModel.ReloadPhotos.Request)
 }
 
 protocol SearchDataStore {
@@ -95,6 +96,10 @@ extension SearchInteractor: SearchBusinessLogic {
         selectedPhoto = dataSource?.photos[request.index]
         presenter?.presentSelectedPhoto(.init())
     }
+    
+    func reloadPhotos(_ request: SearchModel.ReloadPhotos.Request) {
+        presenter?.presentReloadedPhotos(.init())
+    }
 }
 
 // MARK: - Methods
@@ -106,7 +111,7 @@ private extension SearchInteractor {
         currentPage = 1
         totalPagesCount = 1
         dataSource?.photos = []
-        dataSource?.collectionView?.reloadData()
+        reloadPhotos(.init())
     }
     
     func updatePhotos(_ photos: PagedPhotoSearchResult?) throws {

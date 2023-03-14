@@ -10,8 +10,7 @@ import UIKit
 final class SearchDataSource: NSObject {
     
     // MARK: - Properties
-    var photos: [Photo] = []
-    weak var collectionView: UICollectionView?
+    @Atomic var photos: [Photo] = []
     
 }
 

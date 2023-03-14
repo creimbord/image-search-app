@@ -36,4 +36,13 @@ enum SearchModel {
         
         struct ViewModel {}
     }
+    
+    // Reload the photos collection view
+    enum ReloadPhotos {
+        struct Request {}
+        
+        struct Response {}
+        
+        struct ViewModel {}
+    }
 }
