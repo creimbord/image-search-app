@@ -37,6 +37,7 @@
 		CCAFE34A2949240F00ADF66B /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3492949240F00ADF66B /* PhotoModel.swift */; };
 		CCAFE3522949254C00ADF66B /* PhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3512949254C00ADF66B /* PhotoInteractor.swift */; };
 		CCAFE3572949256300ADF66B /* PhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFE3562949256300ADF66B /* PhotoPresenter.swift */; };
+		CCB5F15229C0F255001D34E7 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB5F15129C0F255001D34E7 /* Atomic.swift */; };
 		CCB632C3294B334D006A734B /* RecentQueriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632C2294B334D006A734B /* RecentQueriesDataSource.swift */; };
 		CCB632C9294B33F1006A734B /* RecentQueriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632C8294B33F1006A734B /* RecentQueriesModel.swift */; };
 		CCB632D2294B34C0006A734B /* RecentQueriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */; };
@@ -102,6 +103,7 @@
 		CCAFE3492949240F00ADF66B /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		CCAFE3512949254C00ADF66B /* PhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInteractor.swift; sourceTree = "<group>"; };
 		CCAFE3562949256300ADF66B /* PhotoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenter.swift; sourceTree = "<group>"; };
+		CCB5F15129C0F255001D34E7 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		CCB632C2294B334D006A734B /* RecentQueriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesDataSource.swift; sourceTree = "<group>"; };
 		CCB632C8294B33F1006A734B /* RecentQueriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesModel.swift; sourceTree = "<group>"; };
 		CCB632D1294B34C0006A734B /* RecentQueriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentQueriesInteractor.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			children = (
 				CCAFE31E2948DE8300ADF66B /* Enums */,
 				CCAFE2E22948727D00ADF66B /* Views */,
+				CCB5F15029C0F21F001D34E7 /* PropertyWrappers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -445,6 +448,14 @@
 				CCAFE3492949240F00ADF66B /* PhotoModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CCB5F15029C0F21F001D34E7 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				CCB5F15129C0F255001D34E7 /* Atomic.swift */,
+			);
+			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 		CCB632C1294B333C006A734B /* DataSource */ = {
@@ -650,6 +661,7 @@
 				CCAFE2912948633C00ADF66B /* SearchViewController.swift in Sources */,
 				CCAFE3572949256300ADF66B /* PhotoPresenter.swift in Sources */,
 				CCB632E5294B6F76006A734B /* RecentQueryCell.swift in Sources */,
+				CCB5F15229C0F255001D34E7 /* Atomic.swift in Sources */,
 				CCAFE33B2948E9B700ADF66B /* SearchPresenter.swift in Sources */,
 				CCAFE2C7294863FF00ADF66B /* Assembly.swift in Sources */,
 				CCAFE3422948F8AB00ADF66B /* PhotoCell.swift in Sources */,
